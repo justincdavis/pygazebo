@@ -108,8 +108,8 @@ class Manager(object):
     async def _run(self):
         """Starts the connection and processes events."""
         logger.debug('Manager.run')
-        master_future = self._run_master_connect()
-        server_future = self._run_server_start()
+        master_future = asyncio.ensure_future(self._run_master_connect())
+        server_future = asyncio.ensure_future(self._run_server_start())
         await master_future
         await server_future
 

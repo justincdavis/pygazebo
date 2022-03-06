@@ -1,4 +1,4 @@
-import concurrent
+from concurrent import futures
 import time
 import math
 import sys
@@ -82,9 +82,11 @@ class Server(object):
         self._server.close()
         await _wait_closed(self._server)
         try:
-            await self._running_server
-        except concurrent.futures.CancelledError:
-            pass
+            await asyncio.wait_for(self._running_server, timeout=2)
+        except asyncio.CancelledError:
+            print('futures.CancelledError')
+        except asyncio.TimeoutError:
+            print('asyncio.TimeoutError')
 
     @property
     def listen_host(self):

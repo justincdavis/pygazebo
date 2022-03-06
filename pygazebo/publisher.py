@@ -78,7 +78,7 @@ class Publisher(object):
                     self._dead_connections.append(connection)
                     # await connection.close()
 
-    async def remove(self):
+    async def remove(self, timeout):
         """Stop advertising this topic.
 
         Note: Once :func:`remove` is called, no further methods should
@@ -87,9 +87,9 @@ class Publisher(object):
         self._stop_connection = True
         closing = []
         for conn in self._listeners:
-            closing.append(asyncio.ensure_future(asyncio.wait_for(conn.close())))
+            closing.append(asyncio.ensure_future(asyncio.wait_for(conn.close(), timeout)))
         for conn in self._dead_connections:
-            closing.append(asyncio.ensure_future(asyncio.wait_for(conn.close())))
+            closing.append(asyncio.ensure_future(asyncio.wait_for(conn.close(), timeout)))
         for close_await in closing:
             try:
                 await close_await
