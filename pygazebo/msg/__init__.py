@@ -96,6 +96,7 @@ from . import road_pb2
 from . import scene_pb2
 from . import selection_pb2
 from . import sensor_noise_pb2
+from . import sensorfailure_pb2
 from . import sensor_pb2
 from . import server_control_pb2
 from . import shadows_pb2
