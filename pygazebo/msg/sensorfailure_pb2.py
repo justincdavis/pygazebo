@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13SensorFailure.proto\x12\x10sensor_msgs.msgs\"i\n\rSensorFailure\x12\x13\n\x0bgps_failure\x18\x01 \x02(\x08\x12\x13\n\x0bmag_failure\x18\x02 \x02(\x08\x12\x14\n\x0c\x62\x61ro_failure\x18\x03 \x02(\x08\x12\x18\n\x10\x61irspeed_failure\x18\x04 \x02(\x08')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13SensorFailure.proto\x12\x10sensor_msgs.msgs\"\x9b\x01\n\rSensorFailure\x12\x13\n\x0bgps_failure\x18\x01 \x02(\x08\x12\x13\n\x0bmag_failure\x18\x02 \x02(\x08\x12\x14\n\x0c\x62\x61ro_failure\x18\x03 \x02(\x08\x12\x18\n\x10\x61irspeed_failure\x18\x04 \x02(\x08\x12\x19\n\x11radiolink_failure\x18\x05 \x02(\x08\x12\x15\n\rmotor_failure\x18\x06 \x02(\x08')
 
 
 
@@ -29,6 +29,6 @@ _sym_db.RegisterMessage(SensorFailure)
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _SENSORFAILURE._serialized_start=41
-  _SENSORFAILURE._serialized_end=146
+  _SENSORFAILURE._serialized_start=42
+  _SENSORFAILURE._serialized_end=197
 # @@protoc_insertion_point(module_scope)
