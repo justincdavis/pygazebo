@@ -173,6 +173,8 @@ class Connection(object):
             else:
                 data = await self._reader.readexactly(size)
                 return data
+        except asyncio.exceptions.IncompleteReadError:
+            return None
         except (ConnectionResetError, asyncio.IncompleteReadError) as e:
             if self._closed:
                 return None

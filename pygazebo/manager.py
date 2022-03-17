@@ -201,7 +201,8 @@ class Manager(object):
             self._clients.append(this_connection)
             await self._read_server_data(this_connection)
         except Exception as e:
-            logger.exception("Exception handling an incoming connection")
+            print('Ex' + str(e))
+            # logger.exception("Exception handling an incoming connection")
 
     async def _read_server_data(self, _connection):
         while not self._stop:
