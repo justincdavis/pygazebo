@@ -54,7 +54,7 @@ lint:
 	flake8 pygazebo tests --exclude msg
 
 test:
-	python setup.py test
+	python3 setup.py test
 
 test-all:
 	tox
@@ -66,15 +66,15 @@ coverage:
 	open htmlcov/index.html
 
 docs:
-	python generate_msg_docs.py > docs/pygazebo.msg.rst
+	python3 generate_msg_docs.py > docs/pygazebo.msg.rst
 	sphinx-apidoc -o docs/ pygazebo
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	xdg-open docs/_build/html/index.html
 
 release: clean
-	python setup.py sdist upload
+	python3 setup.py sdist upload
 
 sdist: clean
-	python setup.py sdist
+	python3 setup.py sdist
 	ls -l dist

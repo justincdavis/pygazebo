@@ -2,11 +2,11 @@
 pygazebo
 ========
 
-.. image:: https://travis-ci.org/ci-group/pygazebo.png?branch=develop
-        :target: https://travis-ci.org/ci-group/pygazebo
+.. image:: https://travis-ci.org/justincdavis/pygazebo.png?branch=main
+        :target: https://travis-ci.org/justincdavis/pygazebo
 
-.. image:: https://coveralls.io/repos/ci-group/pygazebo/badge.png?branch=develop
-       :target: https://coveralls.io/r/ci-group/pygazebo?branch=develop
+.. image:: https://coveralls.io/repos/justincdavis/pygazebo/badge.png?branch=main
+       :target: https://coveralls.io/r/justincdavis/pygazebo?branch=main
 
 pygazebo provides python bindings for the Gazebo
 (http://gazebosim.org) multi-robot simulator.
