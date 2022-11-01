@@ -35,6 +35,9 @@ update-gazebo:
 	 done \
 	done
 
+install: clean
+	pip3 install .
+
 clean: clean-build clean-pyc
 
 clean-build:
@@ -75,7 +78,3 @@ release: clean
 sdist: clean
 	python setup.py sdist
 	ls -l dist
-
-install:
-	pip3 install .
-	
