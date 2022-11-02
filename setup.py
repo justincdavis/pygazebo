@@ -40,9 +40,9 @@ setup(
     version='4.0.0-2019.07',
     description='Python bindings for the Gazebo multi-robot simulator.',
     long_description=readme + '\n\n' + history,
-    author='Josh Pieper',
-    author_email='jjp@pobox.com',
-    url='https://github.com/ci-group/pygazebo',
+    author='Justin Davis',
+    author_email='jcdavis@mines.edu',
+    url='https://github.com/justincdavis/pygazebo',
     packages=[
         'pygazebo',
         'pygazebo.msg',

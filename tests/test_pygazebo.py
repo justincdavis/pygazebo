@@ -16,10 +16,7 @@ Tests for `pygazebo` module.
 #  * Error cases
 #  * If no one is listening, that the publish future signals completion
 
-try:
-    import asyncio
-except ImportError:
-    import trollius as asyncio
+import asyncio
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
