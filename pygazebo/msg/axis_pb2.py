@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gazebo.msgs',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\naxis.proto\x12\x0bgazebo.msgs\x1a\x0evector3d.proto\"\xc5\x01\n\x04\x41xis\x12\"\n\x03xyz\x18\x01 \x02(\x0b\x32\x15.gazebo.msgs.Vector3d\x12\x13\n\x0blimit_lower\x18\x02 \x02(\x01\x12\x13\n\x0blimit_upper\x18\x03 \x02(\x01\x12\x14\n\x0climit_effort\x18\x04 \x02(\x01\x12\x16\n\x0elimit_velocity\x18\x05 \x02(\x01\x12\x0f\n\x07\x64\x61mping\x18\x06 \x02(\x01\x12\x10\n\x08\x66riction\x18\x07 \x02(\x01\x12\x1e\n\x16use_parent_model_frame\x18\x08 \x02(\x08')
+  serialized_pb=_b('\n\naxis.proto\x12\x0bgazebo.msgs\x1a\x0evector3d.proto\"\xe3\x01\n\x04\x41xis\x12\"\n\x03xyz\x18\x01 \x02(\x0b\x32\x15.gazebo.msgs.Vector3d\x12\x13\n\x0blimit_lower\x18\x02 \x02(\x01\x12\x13\n\x0blimit_upper\x18\x03 \x02(\x01\x12\x14\n\x0climit_effort\x18\x04 \x02(\x01\x12\x16\n\x0elimit_velocity\x18\x05 \x02(\x01\x12\x0f\n\x07\x64\x61mping\x18\x06 \x02(\x01\x12\x10\n\x08\x66riction\x18\x07 \x02(\x01\x12\"\n\x16use_parent_model_frame\x18\x08 \x02(\x08\x42\x02\x18\x01\x12\x18\n\x10xyz_expressed_in\x18\t \x02(\t')
   ,
   dependencies=[vector3d__pb2.DESCRIPTOR,])
 
@@ -89,6 +89,13 @@ _AXIS = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=_b('\030\001'), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='xyz_expressed_in', full_name='gazebo.msgs.Axis.xyz_expressed_in', index=8,
+      number=9, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
@@ -103,7 +110,7 @@ _AXIS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=44,
-  serialized_end=241,
+  serialized_end=271,
 )
 
 _AXIS.fields_by_name['xyz'].message_type = vector3d__pb2._VECTOR3D
@@ -118,4 +125,5 @@ Axis = _reflection.GeneratedProtocolMessageType('Axis', (_message.Message,), dic
 _sym_db.RegisterMessage(Axis)
 
 
+_AXIS.fields_by_name['use_parent_model_frame']._options = None
 # @@protoc_insertion_point(module_scope)

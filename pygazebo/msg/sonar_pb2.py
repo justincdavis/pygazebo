@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gazebo.msgs',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bsonar.proto\x12\x0bgazebo.msgs\x1a\npose.proto\x1a\x0evector3d.proto\"\xaa\x01\n\x05Sonar\x12\r\n\x05\x66rame\x18\x01 \x02(\t\x12%\n\nworld_pose\x18\x02 \x02(\x0b\x32\x11.gazebo.msgs.Pose\x12\x11\n\trange_min\x18\x03 \x02(\x01\x12\x11\n\trange_max\x18\x04 \x02(\x01\x12\x0e\n\x06radius\x18\x05 \x02(\x01\x12\r\n\x05range\x18\x06 \x02(\x01\x12&\n\x07\x63ontact\x18\x07 \x01(\x0b\x32\x15.gazebo.msgs.Vector3d')
+  serialized_pb=_b('\n\x0bsonar.proto\x12\x0bgazebo.msgs\x1a\npose.proto\x1a\x0evector3d.proto\"\xbc\x01\n\x05Sonar\x12\r\n\x05\x66rame\x18\x01 \x02(\t\x12%\n\nworld_pose\x18\x02 \x02(\x0b\x32\x11.gazebo.msgs.Pose\x12\x11\n\trange_min\x18\x03 \x02(\x01\x12\x11\n\trange_max\x18\x04 \x02(\x01\x12\x0e\n\x06radius\x18\x05 \x02(\x01\x12\r\n\x05range\x18\x06 \x02(\x01\x12&\n\x07\x63ontact\x18\x07 \x01(\x0b\x32\x15.gazebo.msgs.Vector3d\x12\x10\n\x08geometry\x18\x08 \x02(\t')
   ,
   dependencies=[pose__pb2.DESCRIPTOR,vector3d__pb2.DESCRIPTOR,])
 
@@ -84,6 +84,13 @@ _SONAR = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='geometry', full_name='gazebo.msgs.Sonar.geometry', index=7,
+      number=8, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -97,7 +104,7 @@ _SONAR = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=57,
-  serialized_end=227,
+  serialized_end=245,
 )
 
 _SONAR.fields_by_name['world_pose'].message_type = pose__pb2._POSE

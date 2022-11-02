@@ -5,13 +5,32 @@ import asyncio
 import pygazebo
 import pygazebo.msg.joint_cmd_pb2
 
+def callback(data):
+    print("Received data")
+    print(data)
+
+async def subscriber(manager):
+    subscriber = await manager.subscribe(
+        '/gazebo/default/pioneer2dx/joint_cmd',
+        'gazebo.msgs.JointCmd',
+        callback
+    )
+    print("created the subscriber")
+    print("Waiting for connection")
+    await subscriber.wait_for_connection()
+    print("Waiting for data")
+    while True:
+        await asyncio.sleep(1)
 
 async def publish_loop():
     manager = await pygazebo.connect()
 
     publisher = await manager.advertise(
         '/gazebo/default/pioneer2dx/joint_cmd',
-        'gazebo.msgs.JointCmd')
+        'gazebo.msgs.JointCmd'
+    )
+
+    sub_task = asyncio.ensure_future(subscriber(manager))
 
     message = pygazebo.msg.joint_cmd_pb2.JointCmd()
     message.name = 'pioneer2dx::left_wheel_hinge'
@@ -21,6 +40,7 @@ async def publish_loop():
     # message.velocity.p_gain = 1
     print(message)
     while True:
+        print("sending message")
         await publisher.publish(message)
         await asyncio.sleep(1)
 

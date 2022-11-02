@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gazebo.msgs',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x10log_status.proto\x12\x0bgazebo.msgs\x1a\ntime.proto\"\xa4\x02\n\tLogStatus\x12#\n\x08sim_time\x18\x01 \x01(\x0b\x32\x11.gazebo.msgs.Time\x12\x30\n\x08log_file\x18\x02 \x01(\x0b\x32\x1e.gazebo.msgs.LogStatus.LogFile\x1a\xbf\x01\n\x07LogFile\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12\x11\n\tbase_path\x18\x02 \x01(\t\x12\x11\n\tfull_path\x18\x03 \x01(\t\x12\x0c\n\x04size\x18\x04 \x01(\x02\x12\x38\n\nsize_units\x18\x05 \x01(\x0e\x32$.gazebo.msgs.LogStatus.LogFile.Units\"9\n\x05Units\x12\t\n\x05\x42YTES\x10\x01\x12\x0b\n\x07K_BYTES\x10\x02\x12\x0b\n\x07M_BYTES\x10\x03\x12\x0b\n\x07G_BYTES\x10\x04')
+  serialized_pb=_b('\n\x10log_status.proto\x12\x0bgazebo.msgs\x1a\ntime.proto\"\xbe\x02\n\tLogStatus\x12#\n\x08sim_time\x18\x01 \x01(\x0b\x32\x11.gazebo.msgs.Time\x12\x30\n\x08log_file\x18\x02 \x01(\x0b\x32\x1e.gazebo.msgs.LogStatus.LogFile\x1a\xd9\x01\n\x07LogFile\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12\x11\n\tbase_path\x18\x02 \x01(\t\x12\x11\n\tfull_path\x18\x03 \x01(\t\x12\x0c\n\x04size\x18\x04 \x01(\x02\x12\x38\n\nsize_units\x18\x05 \x01(\x0e\x32$.gazebo.msgs.LogStatus.LogFile.Units\x12\x18\n\x10record_resources\x18\x06 \x01(\x08\"9\n\x05Units\x12\t\n\x05\x42YTES\x10\x01\x12\x0b\n\x07K_BYTES\x10\x02\x12\x0b\n\x07M_BYTES\x10\x03\x12\x0b\n\x07G_BYTES\x10\x04')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 
@@ -51,8 +51,8 @@ _LOGSTATUS_LOGFILE_UNITS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=281,
-  serialized_end=338,
+  serialized_start=307,
+  serialized_end=364,
 )
 _sym_db.RegisterEnumDescriptor(_LOGSTATUS_LOGFILE_UNITS)
 
@@ -99,6 +99,13 @@ _LOGSTATUS_LOGFILE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='record_resources', full_name='gazebo.msgs.LogStatus.LogFile.record_resources', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -113,7 +120,7 @@ _LOGSTATUS_LOGFILE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=147,
-  serialized_end=338,
+  serialized_end=364,
 )
 
 _LOGSTATUS = _descriptor.Descriptor(
@@ -150,7 +157,7 @@ _LOGSTATUS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=46,
-  serialized_end=338,
+  serialized_end=364,
 )
 
 _LOGSTATUS_LOGFILE.fields_by_name['size_units'].enum_type = _LOGSTATUS_LOGFILE_UNITS

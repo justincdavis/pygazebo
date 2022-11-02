@@ -2,6 +2,8 @@
 
 help:
 	@echo "update-gazebo - update message definitions from Gazebo"
+	@echo "install - installs package to python with pip"
+	@echo "clean - runs clean-build and clean-pyc"
 	@echo "clean-build - remove build artifacts"
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "lint - check style with flake8"
@@ -11,28 +13,32 @@ help:
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
 	@echo "sdist - package"
-	@echo "install - installs package to python with pip"
 
 # Locate Gazebo header installation directory.
 GAZEBO_INCLUDE_DIR := \
-  ${shell pkg-config gazebo --cflags 2>/dev/null | \
-    perl -ne '/-I(\S*gazebo\S*).*$$/ and print $$1'}
+  ${shell pkg-config gazebo --cflags 2>/dev/null | cut -d' ' -f8 | cut -d'I' -f2}
+
+MSG_DIR := \
+	pygazebo/msg/
 
 update-gazebo:
 	if [ 'z${GAZEBO_INCLUDE_DIR}' = 'z' ]; then \
-    echo "Gazebo must be installed to update message definitions"; \
-    exit 1; \
-  fi
-	rm -rf pygazebo/msg/*_pb2.py
-	for definition in \
-	  $$(find ${GAZEBO_INCLUDE_DIR}/gazebo/msgs/proto -name '*.proto'); \
-      do protoc -I ${GAZEBO_INCLUDE_DIR}/gazebo/msgs/proto \
-                --python_out=pygazebo/msg $$definition; \
-      cd pygazebo/msg; \
-		for file in *; \
-            do protoname=`echo ${file} | rev | cut -c4- | rev`; \
-		 LC_ALL=C sed -i '' "s/import ${protoname}/from . import ${protoname}/g" *_pb2.py; \
-	 done \
+    	echo "Gazebo must be installed to update message definitions"; \
+    	exit 1; \
+  	fi
+	rm -rf ${MSG_DIR}/*_pb2.py
+	for definition in $$(find ${GAZEBO_INCLUDE_DIR}/gazebo/msgs/proto -name '*.proto'); \
+    do \
+		protoc -I ${GAZEBO_INCLUDE_DIR}/gazebo/msgs/proto --python_out=pygazebo/msg $$definition; \
+	done; \
+	cd ${MSG_DIR}; \
+	for file in $$(find . -name '*.py'); \
+    do \
+		protoname=`echo $$file | rev | cut -c4- | rev | cut -c3-`; \
+		for pyfile in $$(find . -name '*_pb2.py'); \
+		do \
+			LC_ALL=C sed -i "s/import $$protoname/from . import $$protoname/g" $$pyfile; \
+		done \
 	done
 
 install: clean

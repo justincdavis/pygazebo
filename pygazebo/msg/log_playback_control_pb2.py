@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gazebo.msgs',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x1alog_playback_control.proto\x12\x0bgazebo.msgs\x1a\ntime.proto\"y\n\x12LogPlaybackControl\x12\r\n\x05pause\x18\x01 \x01(\x08\x12\x12\n\nmulti_step\x18\x02 \x01(\x11\x12\x0e\n\x06rewind\x18\x03 \x01(\x08\x12\x0f\n\x07\x66orward\x18\x04 \x01(\x08\x12\x1f\n\x04seek\x18\x05 \x01(\x0b\x32\x11.gazebo.msgs.Time')
+  serialized_pb=_b('\n\x1alog_playback_control.proto\x12\x0bgazebo.msgs\x1a\ntime.proto\"\x8c\x01\n\x12LogPlaybackControl\x12\r\n\x05pause\x18\x01 \x01(\x08\x12\x12\n\nmulti_step\x18\x02 \x01(\x11\x12\x0e\n\x06rewind\x18\x03 \x01(\x08\x12\x0f\n\x07\x66orward\x18\x04 \x01(\x08\x12\x1f\n\x04seek\x18\x05 \x01(\x0b\x32\x11.gazebo.msgs.Time\x12\x11\n\trt_factor\x18\x06 \x01(\x01')
   ,
   dependencies=[time__pb2.DESCRIPTOR,])
 
@@ -69,6 +69,13 @@ _LOGPLAYBACKCONTROL = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rt_factor', full_name='gazebo.msgs.LogPlaybackControl.rt_factor', index=5,
+      number=6, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -81,8 +88,8 @@ _LOGPLAYBACKCONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=55,
-  serialized_end=176,
+  serialized_start=56,
+  serialized_end=196,
 )
 
 _LOGPLAYBACKCONTROL.fields_by_name['seek'].message_type = time__pb2._TIME
