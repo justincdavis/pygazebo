@@ -32,9 +32,6 @@ class PyTest(TestCommand):
 # -> Once 3.0 is released, this should be set to >= 3.0
 install_requires = ['protobuf>=3.0.0']
 
-if sys.hexversion < 0x03040000:
-    install_requires.append('trollius')
-
 setup(
     name='pygazebo',
     version='4.0.0-2019.07',
