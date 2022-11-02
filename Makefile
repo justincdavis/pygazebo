@@ -1,6 +1,9 @@
 .PHONY: clean-pyc clean-build docs
 
+all: update-gazebo clean install
+
 help:
+	@echo "all - Rebuilds msgs, cleans, installs"
 	@echo "update-gazebo - update message definitions from Gazebo"
 	@echo "install - installs package to python with pip"
 	@echo "clean - runs clean-build and clean-pyc"
@@ -32,9 +35,11 @@ update-gazebo:
 		protoc -I ${GAZEBO_INCLUDE_DIR}/gazebo/msgs/proto --python_out=pygazebo/msg $$definition; \
 	done; \
 	cd ${MSG_DIR}; \
+	> __init__.py; \
 	for file in $$(find . -name '*.py'); \
     do \
 		protoname=`echo $$file | rev | cut -c4- | rev | cut -c3-`; \
+		echo "from . import $$protoname" >> __init__.py; \
 		for pyfile in $$(find . -name '*_pb2.py'); \
 		do \
 			LC_ALL=C sed -i "s/import $$protoname/from . import $$protoname/g" $$pyfile; \

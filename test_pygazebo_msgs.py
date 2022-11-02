@@ -4,15 +4,18 @@ import asyncio
 
 import pygazebo
 import pygazebo.msg.joint_cmd_pb2
+import pygazebo.msg.world_stats_pb2
 
 def callback(data):
     print("Received data")
-    print(data)
+    stats = pygazebo.msg.world_stats_pb2.WorldStatistics()
+    stats = stats.FromString(data)
+    print(stats)
 
 async def subscriber(manager):
     subscriber = await manager.subscribe(
-        '/gazebo/default/pioneer2dx/joint_cmd',
-        'gazebo.msgs.JointCmd',
+        '/gazebo/default/diagnostics',
+        'gazebo.msgs.Worldstats',
         callback
     )
     print("created the subscriber")
